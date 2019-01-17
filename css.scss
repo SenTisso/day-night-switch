@@ -1,0 +1,179 @@
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.switch {
+  @include size(210px, 90px);
+  background-color: #99daf4;
+  border: 5.5px solid #92c0d8;
+  position: relative;
+  overflow: hidden;
+  margin: 100px auto;
+  border-radius: 100px 100px 100px 100px / 100px 100px 100px 100px;
+  cursor: pointer;
+  transition: .28s cubic-bezier(.49,.01,.5,.99);
+
+  .circle {
+    height: 79%;
+    background-color: #fadb67;
+    border: 5.5px solid #c9b464;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 4px;
+    margin: auto 0;
+    transition: .28s cubic-bezier(.49,.01,.5,.99);
+    transform: rotate(-40deg);
+
+    div {
+      background-color: #f9fce9;
+      border-color: #e1e3d5;
+      position: absolute;
+      border-radius: 50%;
+      border-style: solid;
+      opacity: 0;
+      transition: .28s cubic-bezier(.49,.01,.5,.99);
+    }
+
+    .crater {
+      height: 24%;
+      border-width: 4px;
+      top: 4%;
+      right: 8%;
+    }
+
+    .crater1 {
+      height: 14%;
+      border-width: 3px;
+      bottom: 10%;
+      right: 30%;
+    }
+
+    .crater2 {
+      height: 3%;
+      border-width: 3px;
+      top: 17%;
+      left: 6%;
+    }
+  }
+
+  img {
+    height: 39%;
+    position: absolute;
+    left: 25%;
+    top: 33%;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: .28s cubic-bezier(.49,.01,.5,.99);
+  }
+
+  .stars {
+    background-color: #ecf0ef;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    transition: .4s cubic-bezier(.49,.01,.5,.99);
+    overflow: visible;
+  }
+
+  .star {
+    height: 9.99%;
+    top: 5%;
+    left: 15%;
+  }
+  .star1 {
+    height: 9.435%;
+    top: 12%;
+    left: 54%;
+  }
+  .star2 {
+    height: 8.325%;
+    top: 30%;
+    left: 40%;
+  }
+  .star3 {
+    height: 12.21%;
+    top: 35%;
+    left: 7%;
+  }
+  .star4 {
+    height: 6.105%;
+    top: 55%;
+    left: 26%;
+  }
+  .star5 {
+    height: 12.765%;
+    top: 67%;
+    left: 9%;
+  }
+  .star6 {
+    height: 11.1%;
+    top: 80%;
+    left: 50%;
+  }
+}
+
+.switch.night {
+  background-color: #3f3e44;
+  border-color: #1f1f1f;
+
+  .circle {
+    background-color: #f8fbf2;
+    border-color: #dbdfc8;
+    transform: rotate(0);
+
+    div {
+      opacity: 1;
+    }
+  }
+
+  .stars {
+    opacity: 1;
+    margin: 0;
+  }
+
+  img {
+    left: 50%;
+    top: 43%;
+    opacity: 0;
+  }
+}
+
+.switch.day {
+  background-color: #99daf4;
+  border-color: #92c0d8;
+
+  .circle {
+    background-color: #fadb67;
+    border-color: #c9b464;
+    left: 4px;
+    transform: rotate(-40deg);
+
+    div {
+      opacity: 0;
+    }
+  }
+
+  .stars {
+    opacity: 0;
+  }
+
+  img {
+    left: 25%;
+    top: 33%;
+    opacity: 1;
+  }
+}
